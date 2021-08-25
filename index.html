@@ -44,8 +44,22 @@
 </head>
 
 <body>
-    <p id="color">#000000</p>
+    <p id="color" onclick="myFunction()">#000000</p>
     <script>
+        function myFunction() {
+          /* Get the text field */
+          var copyText = document.getElementById("myInput");
+
+          /* Select the text field */
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+          /* Copy the text inside the text field */
+          navigator.clipboard.writeText(copyText.value);
+
+          /* Alert the copied text */
+          alert("Color Code Copied : " + copyText.value);
+        }
         function randomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
